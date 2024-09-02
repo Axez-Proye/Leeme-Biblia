@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansiedad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #FFA500; /* Naranja */
+            color: white;
+        }
+
+        .verse {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .reflection {
+            font-size: 18px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Versículos para Superar la Ansiedad</h1>
+    <div class="verse" id="verse"></div>
+    <div class="reflection" id="reflection"></div>
+
+    <script>
+        const verses = [
+            {
+                verse: '"No se preocupen por nada; en cambio, oren por todo. Díganle a Dios lo que necesitan y denle gracias por todo lo que él ha hecho." - Filipenses 4:6',
+                reflection: "Dios te invita a dejar tus preocupaciones en sus manos. A través de la oración, puedes encontrar paz al confiarle todas tus necesidades, recordando siempre agradecerle por Su fidelidad."
+            },
+            {
+                verse: '"Echen sobre él toda ansiedad, porque él cuida de ustedes." - 1 Pedro 5:7',
+                reflection: "Dios te cuida en cada momento, incluso en tus momentos de mayor ansiedad. Al entregarle tus preocupaciones, encontrarás descanso en Su cuidado constante."
+            },
+            {
+                verse: '"El Señor es mi luz y mi salvación; ¿a quién temeré? El Señor es la fortaleza de mi vida; ¿de quién he de atemorizarme?" - Salmo 27:1',
+                reflection: "Dios es tu luz en medio de la oscuridad de la ansiedad. No necesitas temer, porque Él es la fortaleza que sostiene tu vida en todo momento."
+            },
+            {
+                verse: '"Busqué al Señor, y él me respondió; me libró de todos mis temores." - Salmo 34:4',
+                reflection: "Dios escucha cada clamor de tu corazón. Cuando busques a Dios en medio de tu ansiedad, Él te responderá y te liberará de los temores que te agobian."
+            },
+            {
+                verse: '"En paz me acostaré, y asimismo dormiré; porque solo tú, Señor, me haces vivir confiado." - Salmo 4:8',
+                reflection: "Dios te ofrece la paz que sobrepasa todo entendimiento. En medio de la ansiedad, Él te da la confianza para descansar tranquilo, sabiendo que cuida de ti."
+            },
+            {
+                verse: '"Confía en el Señor con todo tu corazón, y no te apoyes en tu propia prudencia. Reconócelo en todos tus caminos, y él enderezará tus veredas." - Proverbios 3:5-6',
+                reflection: "Cuando la ansiedad te abrume, recuerda confiar en Dios por completo. No dependas de tu propio entendimiento; en lugar de eso, confía en que Él guiará tu camino."
+            },
+            {
+                verse: '"El Señor está cerca de todos los que lo invocan, de todos los que lo invocan en verdad." - Salmo 145:18',
+                reflection: "Dios está siempre cerca de ti, especialmente cuando lo llamas en medio de la ansiedad. Su presencia es un recordatorio constante de Su amor y cuidado."
+            },
+            {
+                verse: '"El que habita al abrigo del Altísimo morará bajo la sombra del Omnipotente. Diré yo al Señor: Esperanza mía, y castillo mío; mi Dios, en quien confiaré." - Salmo 91:1-2',
+                reflection: "Cuando te sientas vulnerable por la ansiedad, recuerda que estás protegido bajo la sombra del Omnipotente. Dios es tu refugio y fortaleza, en quien puedes confiar plenamente."
+            },
+            {
+                verse: '"El corazón tranquilo da vida al cuerpo, pero la envidia corroe los huesos." - Proverbios 14:30',
+                reflection: "Un corazón en paz es una fuente de vida. La ansiedad puede robarte esa paz, pero Dios te invita a encontrar tranquilidad en Su presencia, liberándote de la angustia."
+            },
+            {
+                verse: '"Pero el Señor es fiel, y él los fortalecerá y los protegerá del maligno." - 2 Tesalonicenses 3:3',
+                reflection: "La fidelidad de Dios es tu ancla en tiempos de ansiedad. Él te fortalecerá y protegerá, alejándote de todo lo que pueda intentar dañarte."
+            },
+            {
+                verse: '"El Señor es bueno, un refugio en tiempos de angustia. Él protege a los que en él confían." - Nahúm 1:7',
+                reflection: "Dios es tu refugio seguro cuando la ansiedad te abruma. Confía en Su bondad y encuentra protección bajo Su cuidado amoroso."
+            },
+            {
+                verse: '"Deja que el Dios de la esperanza los llene de todo gozo y paz a ustedes que creen en él, para que rebosen de esperanza por el poder del Espíritu Santo." - Romanos 15:13',
+                reflection: "Dios es la fuente de toda esperanza. Al confiar en Él, puedes experimentar un gozo y paz que superan la ansiedad, llenándote de esperanza a través de Su Espíritu Santo."
+            },
+            {
+                verse: '"No temas, porque yo estoy contigo; no te angusties, porque yo soy tu Dios. Te fortaleceré y te ayudaré; te sostendré con mi diestra victoriosa." - Isaías 41:10',
+                reflection: "Dios está contigo, incluso en tus momentos más ansiosos. Él te sostiene con Su mano fuerte y victoriosa, dándote el poder para superar cualquier temor."
+            },
+            {
+                verse: '"El Señor da fuerzas al cansado y aumenta el vigor del que está débil." - Isaías 40:29',
+                reflection: "Cuando la ansiedad te debilite, recuerda que Dios es quien te da fuerzas. Él renueva tu vigor, permitiéndote enfrentar cada día con una nueva energía."
+            },
+            {
+                verse: '"Por lo tanto, no se angustien por el mañana, el cual tendrá sus propios afanes. Cada día tiene ya sus problemas." - Mateo 6:34',
+                reflection: "Jesús te invita a vivir un día a la vez, sin cargar con las preocupaciones del mañana. Confía en que Dios cuidará de ti en cada paso del camino."
+            },
+            {
+                verse: '"El Señor es mi pastor, nada me falta." - Salmo 23:1',
+                reflection: "Dios es tu Pastor, y en Él tienes todo lo que necesitas. Su provisión es perfecta, y puedes descansar en la certeza de que Él suple cada una de tus necesidades."
+            },
+            {
+                verse: '"Grande es nuestro Señor y poderoso en poder; su entendimiento es infinito." - Salmo 147:5',
+                reflection: "La grandeza de Dios supera cualquier cosa que te cause ansiedad. Su poder y entendimiento son infinitos, y puedes confiar en que Él está en control de todas las cosas."
+            },
+            {
+                verse: '"El Señor está cerca; no se inquieten por nada. Más bien, en toda ocasión, con oración y ruego, presenten sus peticiones a Dios y denle gracias." - Filipenses 4:5-6',
+                reflection: "Dios está cerca, y no necesitas estar inquieto. A través de la oración, puedes entregar cada preocupación a Él, sabiendo que Su paz guardará tu corazón y mente."
+            }
+        ];
+
+        function getRandomVerse() {
+            const randomIndex = Math.floor(Math.random() * verses.length);
+            return verses[randomIndex];
+        }
+
+        const selectedVerse = getRandomVerse();
+        document.getElementById('verse').innerText = selectedVerse.verse;
+        document.getElementById('reflection').innerText = selectedVerse.reflection;
+    </script>
+</body>
+</html>

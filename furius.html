@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enojo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #ff1515; /* Rojo */
+            color: white;
+        }
+
+        .verse {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .reflection {
+            font-size: 18px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Versículos para Superar el Enojo</h1>
+    <div class="verse" id="verse"></div>
+    <div class="reflection" id="reflection"></div>
+
+    <script>
+        const verses = [
+            {
+                verse: '"El enojo del hombre no produce la justicia de Dios." - Santiago 1:20',
+                reflection: "El enojo puede nublar nuestro juicio y alejarnos de la justicia de Dios. Al recordar esto, podemos elegir responder con amor y comprensión en lugar de dejar que el enojo nos controle."
+            },
+            {
+                verse: '"No se ponga el sol sobre vuestro enojo." - Efesios 4:26',
+                reflection: "Es importante resolver nuestros conflictos antes de que se conviertan en rencor. No permitas que el enojo se instale en tu corazón; busca la reconciliación y la paz."
+            },
+            {
+                verse: '"El que es lento para la ira tiene gran entendimiento, pero el que es de espíritu apresurado exalta la necedad." - Proverbios 14:29',
+                reflection: "Tomarse el tiempo para entender y reflexionar antes de reaccionar puede prevenir conflictos innecesarios. La paciencia y la sabiduría son claves para manejar el enojo de manera constructiva."
+            },
+            {
+                verse: '"Mejor es el que tarda en airarse que el poderoso; y el que controla su espíritu que el que toma una ciudad." - Proverbios 16:32',
+                reflection: "Controlar tu enojo es una gran fortaleza. La verdadera victoria no se encuentra en la ira, sino en la capacidad de manejar nuestras emociones y actuar con sabiduría."
+            },
+            {
+                verse: '"No le pagues a nadie mal por mal; procuren lo bueno delante de todos los hombres." - Romanos 12:17',
+                reflection: "La venganza y el resentimiento solo alimentan el enojo. En cambio, elige el camino del bien, buscando siempre actuar con bondad hacia los demás, incluso cuando te sientas herido."
+            },
+            {
+                verse: '"El corazón tranquilo es vida para el cuerpo, pero la envidia corroe los huesos." - Proverbios 14:30',
+                reflection: "Un corazón en paz es esencial para nuestra salud emocional y espiritual. Busca la paz en lugar de dejar que el enojo te consuma, permitiendo que Dios transforme tu corazón."
+            },
+            {
+                verse: '"El que guarda su boca y su lengua, su alma guarda de angustias." - Proverbios 21:23',
+                reflection: "A veces, el silencio es la mejor respuesta ante el enojo. Al controlar nuestras palabras, podemos evitar conflictos y mantener la paz en nuestro interior."
+            },
+            {
+                verse: '"Si es posible, en cuanto dependa de ustedes, estén en paz con todos." - Romanos 12:18',
+                reflection: "La paz es un objetivo importante. Haz tu parte para ser un agente de paz, buscando resolver conflictos y actuar con amor hacia los demás."
+            },
+            {
+                verse: '"Por tanto, despojémonos de toda maldad y de todo engaño, hipocresías, envidias y de toda difamación." - 1 Pedro 2:1',
+                reflection: "Despojarnos del enojo y la amargura es crucial para vivir en libertad. Permite que Dios limpie tu corazón de todo lo que te aleje de Su paz."
+            },
+            {
+                verse: '"Paciencia, paciencia; porque el Señor es compasivo y misericordioso." - Santiago 5:11',
+                reflection: "La paciencia es una virtud que refleja el carácter de Dios. Al practicar la paciencia, te alineas con Su compasión y misericordia, lo que te ayuda a manejar el enojo con gracia."
+            },
+            {
+                verse: '"El sabio de corazón es llamado prudente, y el que dulcifica sus palabras es de espíritu paciente." - Proverbios 16:21',
+                reflection: "Las palabras tienen poder. Al elegir hablar con dulzura y amabilidad, puedes transformar situaciones tensas y cultivar relaciones saludables."
+            },
+            {
+                verse: '"El enojo es cruel, y la ira es como un torrente; pero quien puede hacer frente a la contienda?" - Proverbios 27:4',
+                reflection: "El enojo y la ira pueden llevar a consecuencias devastadoras. Reconocer su naturaleza destructiva nos ayuda a tomar decisiones más sabias y evitar conflictos innecesarios."
+            },
+            {
+                verse: '"El que ama la corrección ama la sabiduría, pero el que odia la reprensión es ignorante." - Proverbios 12:1',
+                reflection: "La corrección puede ser difícil de aceptar, pero es una oportunidad para crecer. Al abrirnos a la corrección, podemos aprender a manejar nuestro enojo de manera más efectiva."
+            },
+            {
+                verse: '"¿Por qué te abates, oh alma mía? ¿Y por qué te turbas dentro de mí? Espera en Dios; porque aún he de alabarle." - Salmo 42:11',
+                reflection: "Cuando sientas enojo, recuerda alabar a Dios. La adoración puede cambiar tu perspectiva y ayudarte a soltar la ira, permitiendo que la paz llene tu corazón."
+            },
+            {
+                verse: '"Así que, hermanos míos, cada uno sea pronto para oír, tardo para hablar, tardo para airarse." - Santiago 1:19',
+                reflection: "Escuchar antes de hablar es esencial para evitar el enojo. Practicar la escucha activa te permite responder con comprensión y empatía, en lugar de reacciones impulsivas."
+            },
+            {
+                verse: '"El que dice: “Yo amo a Dios”, y aborrece a su hermano, es mentiroso; porque el que no ama a su hermano, a quien ha visto, no puede amar a Dios, a quien no ha visto." - 1 Juan 4:20',
+                reflection: "El amor es fundamental en nuestra relación con Dios. Si permitimos que el enojo nos separe de los demás, también nos alejamos de Su amor. Cultiva el amor y la reconciliación en tu vida."
+            },
+            {
+                verse: '"Bienaventurados los pacificadores, porque ellos serán llamados hijos de Dios." - Mateo 5:9',
+                reflection: "Buscar la paz es un llamado divino. Al ser un pacificador, reflejas el carácter de Dios y te alineas con Su propósito, contribuyendo a un mundo más armonioso."
+            }
+        ];
+
+        function getRandomVerse() {
+            const randomIndex = Math.floor(Math.random() * verses.length);
+            return verses[randomIndex];
+        }
+
+        const selectedVerse = getRandomVerse();
+        document.getElementById('verse').innerText = selectedVerse.verse;
+        document.getElementById('reflection').innerText = selectedVerse.reflection;
+    </script>
+</body>
+</html>

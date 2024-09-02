@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palabras de Aliento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            margin-top: 50px;
+            cursor: pointer;
+        }
+
+        .happy {
+            background-color: #FFD700; /* Amarillo */
+        }
+
+        .sad {
+            background-color: #1E90FF; /* Azul */
+        }
+
+        .anxious {
+            background-color: #ff7e15; /* Naranja */
+        }
+
+        .calm {
+            background-color: #32CD32; /* Verde */
+        }
+        .furius {
+            background-color: #ff1515; /* Rojo */
+        }
+    </style>
+</head>
+<body>
+    <h1>Léeme cuando estés...</h1>
+
+    <div class="container happy" onclick="redirectTo('happy')">
+        <h2>Feliz</h2>
+    </div>
+
+    <div class="container sad" onclick="redirectTo('sad')">
+        <h2>Triste</h2>
+    </div>
+
+    <div class="container anxious" onclick="redirectTo('anxious')">
+        <h2>Ansiosa</h2>
+    </div>
+
+    <div class="container calm" onclick="redirectTo('calm')">
+        <h2>Tranquila</h2>
+    </div>
+    <div class="container furius" onclick="redirectTo('furius')">
+        <h2>Enojada</h2>
+    </div>
+
+    <script>
+        function redirectTo(emotion) {
+            window.location.href = emotion + ".html";
+        }
+    </script>
+</body>
+</html>

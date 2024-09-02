@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tristeza</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #1E90FF; /* Azul */
+            color: white;
+        }
+
+        .verse {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .reflection {
+            font-size: 18px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Versículos para Superar la Tristeza</h1>
+    <div class="verse" id="verse"></div>
+    <div class="reflection" id="reflection"></div>
+
+    <script>
+        const verses = [
+            {
+                verse: '"Cercano está el Señor a los quebrantados de corazón; él salva a los de espíritu abatido." - Salmo 34:18',
+                reflection: "Dios está más cerca de ti en tus momentos más oscuros. Cuando tu corazón está roto, Él está ahí, dispuesto a consolarte y a sostenerte con su amor incondicional."
+            },
+            {
+                verse: '"Echen sobre él toda ansiedad, porque él cuida de ustedes." - 1 Pedro 5:7',
+                reflection: "No estás solo en tus preocupaciones. Dios quiere que confíes en Él y que le entregues todas tus cargas. Su cuidado es constante y perfecto, y puedes descansar en Su protección."
+            },
+            {
+                verse: '"No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios que te fortalece; siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia." - Isaías 41:10',
+                reflection: "Dios promete estar contigo en cada paso del camino. Incluso cuando te sientas débil y abrumado, Su fuerza es tu fortaleza. Confía en que Él no te dejará caer."
+            },
+            {
+                verse: '"El Señor es mi pastor, nada me falta. Aunque ande en valle de sombra de muerte, no temeré mal alguno, porque tú estás conmigo; tu vara y tu cayado me infunden aliento." - Salmo 23:1,4',
+                reflection: "Dios es tu Pastor, guiándote y protegiéndote incluso en los tiempos más difíciles. No importa cuán oscuro parezca el camino, Su presencia te dará el valor para seguir adelante."
+            },
+            {
+                verse: '"Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar." - Mateo 11:28',
+                reflection: "Jesús te invita a dejar tus cargas a sus pies. En Él encontrarás descanso para tu alma cansada, y su paz superará cualquier ansiedad o preocupación que enfrentes."
+            },
+            {
+                verse: '"Bendito sea el Dios y Padre de nuestro Señor Jesucristo, Padre de misericordias y Dios de toda consolación, quien nos consuela en todas nuestras tribulaciones." - 2 Corintios 1:3-4',
+                reflection: "Dios es el Padre de la misericordia y la fuente de todo consuelo. En cada prueba y dificultad, Él te ofrece Su consuelo, recordándote que nunca estás solo."
+            },
+            {
+                verse: '"El llanto puede durar toda la noche, pero a la mañana vendrá el grito de alegría." - Salmo 30:5',
+                reflection: "Aunque hoy sientas dolor y tristeza, recuerda que la alegría volverá. Dios promete que el sufrimiento no durará para siempre; su luz traerá un nuevo amanecer a tu vida."
+            },
+            {
+                verse: '"En medio de las dificultades, me has dado vida. Según tu palabra, me has fortalecido." - Salmo 119:50',
+                reflection: "La Palabra de Dios es tu fortaleza en tiempos de prueba. Cada promesa suya es una fuente de vida y renovación, dándote el poder para superar cualquier desafío."
+            },
+            {
+                verse: '"Los que siembran con lágrimas, cosecharán con gritos de alegría." - Salmo 126:5',
+                reflection: "Tus lágrimas no son en vano. Dios ve cada una de ellas, y promete que tu dolor se transformará en alegría y gratitud. Sigue sembrando con fe, porque la cosecha será abundante."
+            },
+            {
+                verse: '"Dios es nuestro refugio y fortaleza, un pronto auxilio en las tribulaciones." - Salmo 46:1',
+                reflection: "Cuando sientas que todo se derrumba, recuerda que Dios es tu refugio seguro. Él es tu fortaleza y siempre está listo para ayudarte en medio de cualquier crisis."
+            },
+            {
+                verse: '"Pero los que esperan en el Señor renovarán sus fuerzas; levantarán alas como las águilas; correrán, y no se cansarán; caminarán, y no se fatigarán." - Isaías 40:31',
+                reflection: "Espera en el Señor y verás cómo tus fuerzas son renovadas. Su poder te levantará por encima de tus circunstancias, dándote la energía para continuar y no rendirte."
+            },
+            {
+                verse: '"Aunque la higuera no florezca, ni en las vides haya frutos; aunque falte el producto del olivo, y los labrados no den mantenimiento, y las ovejas sean quitadas de la majada, y no haya vacas en los corrales; con todo, yo me alegraré en el Señor, y me gozaré en el Dios de mi salvación." - Habacuc 3:17-18',
+                reflection: "Incluso cuando todo parezca perdido, elige regocijarte en el Señor. Su salvación y amor son constantes, y en Él puedes encontrar alegría en medio de la adversidad."
+            },
+            {
+                verse: '"El Señor te guardará de todo mal; él guardará tu alma." - Salmo 121:7',
+                reflection: "Dios es tu protector. Aunque enfrentes dificultades, puedes confiar en que Él guarda tu alma y te guía a través de cualquier prueba con Su cuidado amoroso."
+            },
+            {
+                verse: '"Cuando pases por las aguas, yo estaré contigo; y si por los ríos, no te anegarán; cuando pases por el fuego, no te quemarás, ni la llama arderá en ti." - Isaías 43:2',
+                reflection: "Dios promete estar contigo en cada desafío, sin importar cuán difíciles sean. Él te protegerá y te llevará a salvo al otro lado de cada prueba, fortalecido y renovado."
+            },
+            {
+                verse: '"El Señor da poder a los débiles y fortaleza a los impotentes." - Isaías 40:29',
+                reflection: "Cuando te sientas débil, recuerda que Dios es quien te fortalece. Él no te dejará en tu impotencia; en cambio, te dará el poder necesario para levantarte y seguir adelante."
+            },
+            {
+                verse: '"Yo clamaré al Señor, y él me responderá desde su santo monte." - Salmo 3:4',
+                reflection: "Dios escucha cada clamor de tu corazón. No importa cuán profunda sea tu angustia, Él te responderá desde Su trono, trayendo paz y respuesta a tus súplicas."
+            },
+            {
+                verse: '"Mi carne y mi corazón desfallecen; mas la roca de mi corazón y mi porción es Dios para siempre." - Salmo 73:26',
+                reflection: "Incluso cuando todo en ti se sienta débil, Dios es tu roca y tu porción. Su presencia es tu fuerza eterna, y en Él puedes encontrar estabilidad en medio de cualquier tormenta."
+            }
+        ];
+
+        function getRandomVerse() {
+            const randomIndex = Math.floor(Math.random() * verses.length);
+            return verses[randomIndex];
+        }
+
+        const selectedVerse = getRandomVerse();
+        document.getElementById('verse').innerText = selectedVerse.verse;
+        document.getElementById('reflection').innerText = selectedVerse.reflection;
+    </script>
+</body>
+</html>

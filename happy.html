@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felicidad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #FFD700; /* Dorado */
+            color: black;
+        }
+
+        .verse {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .reflection {
+            font-size: 18px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Versículos para Cultivar la Felicidad</h1>
+    <div class="verse" id="verse"></div>
+    <div class="reflection" id="reflection"></div>
+
+    <script>
+        const verses = [
+            {
+                verse: '"Este es el día que hizo el Señor; nos gozaremos y alegraremos en él." - Salmo 118:24',
+                reflection: "Cada día es un regalo de Dios. Elige alegrarte y disfrutar de las bendiciones que te rodean, incluso en los momentos difíciles."
+            },
+            {
+                verse: '"El gozo del Señor es mi fortaleza." - Nehemías 8:10',
+                reflection: "La verdadera fortaleza proviene de la alegría que encontramos en nuestra relación con Dios. Permite que Su gozo te fortalezca y te motive cada día."
+            },
+            {
+                verse: '"Regocíjate en el Señor siempre. Otra vez digo: ¡Regocíjate!" - Filipenses 4:4',
+                reflection: "El regocijo no es solo una emoción pasajera, sino una elección constante. Haz de la alegría en el Señor una parte fundamental de tu vida."
+            },
+            {
+                verse: '"Por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios en toda oración y ruego, con acción de gracias." - Filipenses 4:6',
+                reflection: "La gratitud es esencial para la felicidad. Al presentar tus preocupaciones a Dios con agradecimiento, experimentarás paz y alegría."
+            },
+            {
+                verse: '"Bienaventurados los que lloran, porque ellos recibirán consolación." - Mateo 5:4',
+                reflection: "La felicidad a menudo viene después de la tristeza. Permite que Dios consuele tu corazón y transforma tus lágrimas en alegría."
+            },
+            {
+                verse: '"La alegría del corazón es buena medicina, pero el espíritu triste seca los huesos." - Proverbios 17:22',
+                reflection: "La alegría tiene un poder curativo. Al elegir ser feliz, no solo nutres tu alma, sino que también impactas positivamente a quienes te rodean."
+            },
+            {
+                verse: '"Por tanto, alegraos en el Señor, y regocíjense, justos; y cantad con gozo, todos los rectos de corazón." - Salmo 32:11',
+                reflection: "El gozo es una respuesta a la justicia de Dios en nuestra vida. Alaba a Dios y celebra Su bondad en cada momento."
+            },
+            {
+                verse: '"El Señor guarda a los simples; estaba yo postrado y me salvó." - Salmo 116:6',
+                reflection: "La alegría viene de saber que Dios cuida de ti. Confía en Su protección y agradece Su salvación en tu vida."
+            },
+            {
+                verse: '"Alegraos siempre en el Señor; otra vez digo: ¡Alegraos!" - Filipenses 4:4',
+                reflection: "Repetir este llamado a la alegría nos recuerda su importancia. Elige alegrarte en el Señor, independientemente de las circunstancias."
+            },
+            {
+                verse: '"¡Canten alegres a Dios, habitantes de toda la tierra! ¡Adoren a Jehová con alegría! ¡Vengan ante su presencia con regocijo!" - Salmo 100:1-2',
+                reflection: "La alabanza es una expresión de alegría. Alabar a Dios con alegría transforma nuestro enfoque y nos llena de gozo."
+            },
+            {
+                verse: '"El que siembra con generosidad, cosechará generosamente." - 2 Corintios 9:6',
+                reflection: "La generosidad trae alegría. Al dar a otros, no solo los bendices, sino que también experimentas la felicidad que viene de compartir."
+            },
+            {
+                verse: '"Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien." - Romanos 8:28',
+                reflection: "La fe en que todo tiene un propósito divino nos da alegría. Confía en que incluso en los momentos difíciles, Dios está trabajando para tu bien."
+            },
+            {
+                verse: '"La alegría es un fruto del Espíritu." - Gálatas 5:22',
+                reflection: "Permitir que el Espíritu Santo guíe tu vida produce alegría. Al buscar una relación más cercana con Dios, experimentarás Su gozo."
+            },
+            {
+                verse: '"¡Alégrense en su gran alegría! ¡Llenen sus corazones con alegría y alabanza!" - Salmo 71:23',
+                reflection: "La alegría es contagiosa. Al compartir tu felicidad, inspiras a otros a encontrar gozo en sus propias vidas."
+            },
+            {
+                verse: '"Deleitaos asimismo en Jehová, y él te concederá las peticiones de tu corazón." - Salmo 37:4',
+                reflection: "Cuando encuentras deleite en Dios, tus deseos se alinean con Su voluntad. Esto produce una profunda alegría en tu vida."
+            },
+            {
+                verse: '"Las cosas viejas pasaron; he aquí, todas son hechas nuevas." - 2 Corintios 5:17',
+                reflection: "Cada día es una nueva oportunidad para experimentar la alegría. Permite que Dios renueve tu vida y traiga nuevas bendiciones."
+            },
+            {
+                verse: '"La felicidad de los justos es como la luz de la aurora, que va en aumento hasta que el día es perfecto." - Proverbios 4:18',
+                reflection: "La felicidad crece y se intensifica con el tiempo. A medida que sigues a Dios, Su luz brilla más en tu vida, trayendo alegría continua."
+            }
+        ];
+
+        function getRandomVerse() {
+            const randomIndex = Math.floor(Math.random() * verses.length);
+            return verses[randomIndex];
+        }
+
+        const selectedVerse = getRandomVerse();
+        document.getElementById('verse').innerText = selectedVerse.verse;
+        document.getElementById('reflection').innerText = selectedVerse.reflection;
+    </script>
+</body>
+</html>

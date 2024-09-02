@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tranquilidad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #32CD32; /* Verde claro */
+            color: black;
+        }
+
+        .verse {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .reflection {
+            font-size: 18px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Versículos para Encontrar Tranquilidad</h1>
+    <div class="verse" id="verse"></div>
+    <div class="reflection" id="reflection"></div>
+
+    <script>
+        const verses = [
+            {
+                verse: '"Y el mismo Señor de paz les dé siempre paz en toda manera. El Señor sea con todos vosotros." - 2 Tesalonicenses 3:16',
+                reflection: "La paz de Dios está disponible para ti en cualquier momento. Confía en que Su presencia te rodea y te brinda la serenidad que anhelas."
+            },
+            {
+                verse: '"No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios. Te fortaleceré y te ayudaré; te sostendré con mi diestra justa." - Isaías 41:10',
+                reflection: "Dios te acompaña en cada paso. Su presencia trae paz y fuerza, así que no tengas miedo; confía en Su apoyo constante."
+            },
+            {
+                verse: '"En la paz yo me acostaré y así dormiré; porque solo tú, Señor, me haces vivir confiado." - Salmo 4:8',
+                reflection: "La confianza en Dios te permite descansar en paz. Deja tus preocupaciones a Su lado y permite que Su paz llene tu corazón al acostarte."
+            },
+            {
+                verse: '"Sobre todo lo que se debe guardar, guarda tu corazón; porque de él mana la vida." - Proverbios 4:23',
+                reflection: "Proteger tu corazón es esencial para mantener la tranquilidad. Llénalo de pensamientos positivos y de la Palabra de Dios, y verás cómo la paz fluye en tu vida."
+            },
+            {
+                verse: '"Porque yo sé los planes que tengo para ustedes, declara el Señor, planes de bienestar y no de calamidad, para darles un futuro y una esperanza." - Jeremías 29:11',
+                reflection: "Dios tiene un plan maravilloso para ti. Al confiar en Su propósito, encontrarás tranquilidad, sabiendo que Él está dirigiendo tu camino."
+            },
+            {
+                verse: '"El corazón sereno es vida para el cuerpo, pero la envidia es carcoma en los huesos." - Proverbios 14:30',
+                reflection: "Una mente tranquila es fuente de salud. Evita las comparaciones y enfócate en lo que tienes, permitiendo que la gratitud llene tu corazón."
+            },
+            {
+                verse: '"Y en todo lo que hagas, pon a Dios primero, y él te dará éxito." - Proverbios 3:6',
+                reflection: "Al priorizar a Dios en tu vida, encuentras dirección y paz. Permítele guiarte, y experimentarás éxito y tranquilidad en tus decisiones."
+            },
+            {
+                verse: '"El Señor te guiará siempre; saciará tu necesidad en tierras ardientes y fortalecerá tus huesos. Serás como un huerto bien regado, como un manantial de agua, cuyas aguas nunca faltan." - Isaías 58:11',
+                reflection: "Dios promete proveer para tus necesidades. Confía en Su provisión y deja que Su paz te renueve como un manantial de agua viva."
+            },
+            {
+                verse: '"La paz os dejo, mi paz os doy; no como el mundo la da, yo os la doy." - Juan 14:27',
+                reflection: "La paz que ofrece Dios es diferente de la paz del mundo. Es una paz profunda que permanece en tu corazón, sin importar las circunstancias que enfrentes."
+            },
+            {
+                verse: '"Encomienda a Jehová tus obras, y tus pensamientos serán afirmados." - Proverbios 16:3',
+                reflection: "Al entregar tus preocupaciones y planes a Dios, Él afirmará tus pensamientos y te llenará de paz, ayudándote a enfocarte en lo que realmente importa."
+            },
+            {
+                verse: '"Dios es nuestro refugio y fortaleza, nuestro pronto auxilio en las tribulaciones." - Salmo 46:1',
+                reflection: "En tiempos de dificultad, recuerda que Dios es tu refugio. Al buscarlo, encontrarás la tranquilidad que necesitas en medio de la tormenta."
+            },
+            {
+                verse: '"Así que no se preocupen por el mañana, porque el mañana se preocupará por sí mismo." - Mateo 6:34',
+                reflection: "Cada día tiene sus propias preocupaciones. Vive en el presente y confía en que Dios se encargará de lo que venga mañana."
+            },
+            {
+                verse: '"Por eso, no me preocupare por el mañana; el mañana se preocupará por sí mismo. Cada día trae sus propias preocupaciones. Basta con el sufrimiento de cada día." - Mateo 6:34 (parafraseado)',
+                reflection: "Cada día trae su propia carga. Aprende a vivir un día a la vez, confiando en que Dios te dará la gracia para enfrentar cada nuevo desafío."
+            },
+            {
+                verse: '"En la tranquilidad y en la confianza será vuestra fortaleza." - Isaías 30:15',
+                reflection: "La verdadera fortaleza proviene de la paz y la confianza en Dios. Cuando te sientas abrumado, recuerda que en la tranquilidad encontrarás tu fuerza."
+            },
+            {
+                verse: '"El Señor es bueno, un refugio en tiempos de angustia. Él protege a los que en él confían." - Nahúm 1:7',
+                reflection: "Cuando sientas ansiedad, vuelve a Dios. Él es un refugio seguro que te brinda paz y protección en medio de las tormentas de la vida."
+            },
+            {
+                verse: '"No se inquieten por nada, sino presenten sus peticiones a Dios en oración y con acción de gracias." - Filipenses 4:6',
+                reflection: "La oración es una poderosa herramienta para liberar la ansiedad. Al presentar tus preocupaciones a Dios, Él puede llenarte de paz y tranquilidad."
+            }
+        ];
+
+        function getRandomVerse() {
+            const randomIndex = Math.floor(Math.random() * verses.length);
+            return verses[randomIndex];
+        }
+
+        const selectedVerse = getRandomVerse();
+        document.getElementById('verse').innerText = selectedVerse.verse;
+        document.getElementById('reflection').innerText = selectedVerse.reflection;
+    </script>
+</body>
+</html>
